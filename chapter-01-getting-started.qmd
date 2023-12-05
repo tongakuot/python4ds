@@ -1,0 +1,425 @@
+---
+title: "Python for Data Science"
+subtitle: "Alierwai DataStudio & Jonglei Institute of Technology"
+author: "Alier Reng"
+date: "2023-12-02"
+date-format: "D MMMM YYYY"
+format:
+  html:
+    toc: true
+    number-sections: true
+    colorlinks: true
+
+jupyter: python3
+---
+
+# Chapter 1 Getting Started
+
+Data science, a multidisciplinary field that focuses on extracting insights from data, relies heavily on Python, R, and other programming languages. We will use Python in this course for its simplicity and robust libraries. This introductory course in data science with Python will cover fundamental concepts, data manipulation with Pandas and NumPy, and data visualization using Matplotlib and Seaborn. Learners delve into data cleaning, preprocessing, and exploratory data analysis to prepare data for analysis. The course equips learners with a solid foundation to embark on a data science journey and apply their skills to real-world challenges.
+
+## **Installing Anaconda**
+
+Instructions will be added at a later date.
+
+## **Installing and Customizing VS Code**
+
+To enable Python and Quarto, the following extensions are required:
+
+1.  **IntelliSense (Pylance):**
+
+    > A Visual Studio Code extension that offers comprehensive support for the Python language (for all actively supported versions: \>=3.7). It includes features like IntelliSense (Pylance), linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
+
+2.  **Python Indent**
+
+    Ensures correct Python indentation in Visual Studio Code. You can find the extension on the VSCode Marketplace and review its source code on GitHub.
+
+3.  **Python Extension Pack**
+
+    A collection of Python extensions, including autodocstring, IntelliSense, Jinja, Django, Intellicode, and Python Environment Manager.
+
+4.  **Python Environment Manager**
+
+    Offers seamless management of Python environments.
+
+5.  **Quarto Extension**
+
+    Quarto is an open-source scientific and technical writing software developed by Posit (formerly RStudio).
+
+6.  Markdown Preview Enhanced
+
+    > Markdown Preview Enhanced is an extension that provides you with many useful functionalities such as automatic scroll sync, [math typesetting](https://shd101wyy.github.io/markdown-preview-enhanced/#/math "https://shd101wyy.github.io/markdown-preview-enhanced/#/math"), [mermaid](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid "https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=mermaid"), [PlantUML](https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml "https://shd101wyy.github.io/markdown-preview-enhanced/#/diagrams?id=plantuml"), [pandoc](https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc "https://shd101wyy.github.io/markdown-preview-enhanced/#/pandoc"), PDF export, [code chunk](https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk "https://shd101wyy.github.io/markdown-preview-enhanced/#/code-chunk"), [presentation writer](https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html "https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html"), etc. A lot of its ideas are inspired by [Markdown Preview Plus](https://github.com/atom-community/markdown-preview-plus "https://github.com/atom-community/markdown-preview-plus") and [RStudio Markdown](http://rmarkdown.rstudio.com/ "http://rmarkdown.rstudio.com/").
+
+## **Jupyter Notebook Overview**
+
+In this course, we will utilize Quarto instead of Jupyter Notebook or JupyterLab due to its distinctive capabilities. However, students are free to choose their preferred tool. Below are keyboard shortcuts for those who opt to use either Jupyter Notebook or JupyterLab [^1]:
+
+[^1]: Effective Pandas: Patterns for Data Manipulation by Matt Harrison
+
+-   Press 'a' to add a cell above the current cell.
+
+-   Press 'b' to create a cell below the current cell.
+
+-   Press 'x' to cut the cell.
+
+-   Press 'c' to copy the cell.
+
+-   Press 'v' to paste the copied content.
+
+-   Press 'ESC + M' to switch the cell to Markdown Mode.
+
+-   Press 'ESC + Y' to switch the cell to Code Mode.
+
+-   Press 'TAB' to auto-complete what you're typing.
+
+-   Press 'ESC + I, I' to interrupt the kernel.
+
+-   Press 'ESC + 0, 0' to restart the kernel.
+
+-   Press 'Ctrl + Return' to execute the cell.
+
+-   Press 'Shift + Return' to execute the cell and add a cell below it.
+
+-   Press 'Shift + Tab' to bring up **Tooltip** and press 'ESC' to undo it.
+
+## Fundamentals of Python
+
+In this section, students will acquire foundational knowledge of basic Python data structures and essential tools crucial for their journey in data science. Specifically, this section will cover key aspects, including control flow methods, data structures, functions, and algorithms.
+
+### Control Flow Methods
+
+Control flow encompasses programming syntax that directs program execution. It enables dynamic adaptations based on the program's state or input, influencing output changes (Farrell et. all, 2020).
+
+#### **if Statements**
+
+Conditionals, often implemented as if statements, represent a prevalent form of control flow. They serve to assess the truth or falsehood of a given condition. `if statement` is expressed as follows in Python:
+
+if \[condition to check\]:
+
+do something
+
+Example 1: Let's determine whether the given number is even or odd.
+
+```{python}
+#| warning: false
+#| message: false
+for x in range(0, 10):
+    if x % 2 == 0:
+        print(f'x is even.')
+    else:
+        print(f'x is odd.')
+```
+
+Example 2: Let's determine whether the given number is divisible by 3, 4, and 6.
+
+::: callout-tip
+Because `x % 3 == 0` meets the condition, the remaining checks are not performed.
+:::
+
+```{python}
+#| warning: false
+#| message: false
+x = 150
+
+if x % 3 == 0:
+    print(f'x is divisible by 3')
+elif x % 4 == 0:
+    print(f'x is divisible by 4')
+elif x % 6 == 0:
+    print(f'x is divisible by 6')
+else:
+    print(f'x is not divisible by 3, 4, or 6')
+
+```
+
+#### Loops
+
+Loops are another example of a control flow method used extensively. There are two types of loops: while loops and for loops. The following examples illustrate the usage of each.
+
+Example 3: A while loop checks to determine whether the execution fulfills a given condition, and as long as the condition remains true, the loop continues to iterate.
+
+```{python}
+#| warning: false
+#| message: false
+
+y = 0
+while y < 6:
+    print(y)
+    y += 1
+
+```
+
+Example 4: A for loop is employed to iterate through a given sequence of values.
+
+```{python}
+#| warning: false
+#| message: false
+
+for i in range(5):
+    if i % 2 == 0:
+        print(i)
+```
+
+Example 5: Check if Jok Gai is in the list
+
+```{python}
+my_list = ['alier reng', 'jok gai', 'deng mach', 'alier mach']
+
+for name in my_list:
+    if name == 'jok gai':
+        print(f'Hello, {name.title()}! Welcome to Python for Data Science.')
+```
+
+### Data Structures
+
+Data structures are specialized formats for organizing and storing data to facilitate efficient operations like insertion, retrieval, and deletion. They define how data is arranged, stored, and manipulated within a computer's memory. The choice of a data structure depends on the specific requirements of the task, considering factors such as the type of data, the operations to be performed, and the efficiency of those operations.
+
+Common data structures include strings, arrays, lists, sets, dictionaries, and tuples. Each has unique characteristics and advantages, making them suitable for different computer science, programming, and data management scenarios. Selecting an appropriate data structure is crucial for optimizing algorithms and improving the overall performance of software systems.
+
+#### Strings
+
+Strings are sequences of characters, immutable in nature, and offer various methods for manipulation. String formatting options are `%-formatting`, `str.format()`, and `f-strings`. We will only learn about `f-strings` in this course.
+
+Example 6:
+
+```{python}
+a = "Hello, friends!"
+b = "Welcome to the Data Science Community!"
+
+print(f'{a + '\n' + b}')
+```
+
+Example 7:
+
+```{python}
+my_string = "Alierwai DataStudio"
+for char in my_string:
+    if char == char.upper().strip():
+        print(f'{char} is a capital letter!')
+```
+
+Example 8:
+
+```{python}
+age = 3
+print(f'Akuien is {age} years old! He is now a big boy.')
+```
+
+Example 9: Numeric formatting options for strings
+
+```{python}
+from math import pi, sin, cos
+print(f'pi = {pi:.4f}, rounded to four decimal places.')
+
+# Add a space between these outputs
+print(' ')
+
+print(f'sin(pi) = {sin(pi):.2f} and cos(pi) = {cos(pi):.2f}')
+
+# Add a space between these outputs
+print(' ')
+
+# Displaying the current time
+from datetime import datetime as dt
+print(f'The current time is {dt.now():%H:%M}, EDT.')
+```
+
+#### Lists
+
+Python lists stand out as the most commonly used data structure, offering the flexibility to contain a mix of numbers, strings, and tuples, e.g., my_list = \[1, 2, 'a', 'x', (1, 2, 3)\].
+
+Example 10: When working with Python lists, elements can be added in two ways: **`append()`** inserts a single element at the end of a list, while list concatenation combines two lists.
+
+```{python}
+my_list = [1, 2, 'a', 'x', (1, 2, 3)]
+
+# Add 4 to my_list
+my_list.append(4)
+print(f'My updated list is {my_list}')
+
+# Create a new list
+b = [5, 12, -8]
+
+print(f'My concatenated list is {my_list + b}')
+
+```
+
+You can remove an element from a list with the **pop()** method using the index of the element being removed.
+
+```{python}
+# Remove -8 from b above
+b.pop(2)
+```
+
+Now, let's create a new by modifying an existing list.
+
+```{python}
+c = [4, 3, 8, 7, 10, 12]
+
+d = [3 * i for i in c if i % 2 == 1]
+print(d)
+
+# Square even elements in list c
+square_even_nums = [i**2 for i in c if i % 2 == 0]
+print(f'square_even_nums are: {square_even_nums}')
+```
+
+Example 11: Working with multi-dimensional lists
+
+```{python}
+multi_list = [[0, 2, 5], [8, 6, 4], [7, 12, 15]]
+
+# Let's print a row: here, a sublist is assigned to a variable called row
+for row in multi_list:
+    print(row)
+```
+
+```{python}
+# print out the first element in each sublist
+for row in multi_list:
+    print(row[0])
+```
+
+```{python}
+# Print out the values of all the cells in multi_list by havin a nested for loop
+for row in multi_list:
+    for element in row:
+        print(element)
+```
+
+::: callout-tip
+This is because the row index and the column index of a diagonal element in a table/matrix are equal.
+:::
+
+```{python}
+# Print out the diagonal elements in a nicely formatted message. To do this, we can have an indexing variable i; loop from 0 t0 2
+for i in range(3):
+    print(multi_list[i][i])
+```
+
+Next, let's make the above a bit pretty using the `f-strings`.
+
+```{python}
+# Print out the diagonal elements in a nicely formatted message. To do this, we can have an indexing variable i; loop from 0 t0 2
+for i in range(3):
+    print(f'{i + 1}-th diagonal element is: {multi_list[i][i]}')
+```
+
+```{python}
+# Print out the diagonal elements in a nicely formatted message. To do this, we can have an indexing variable i; loop from 0 t0 2
+for i in range(3):
+    print(f'{i + 1:02d}-th diagonal element is: {multi_list[i][i]}')
+```
+
+### Tuples
+
+Tuples are similar to list; however, they are immutable objects in `Python` - they can't be changed.
+
+Example 12:
+
+```{python}
+# Try changing a tuple
+a = (0, 1, 2, 3)
+#a[2] = 5 # this throws an TypeError: 'tuple' object does not support item assignment
+
+# Try appending 7 to a
+#a.append(7)
+```
+
+```{python}
+# Tuple with integers
+int_tuple = (1, 2, 3)
+print(int_tuple)
+
+# tuple with mixed datatypes
+my_tuple = (1, "Hello", 3.4)
+print(my_tuple)
+
+# nested tuple
+nested_tuple = ("mouse", [8, 4, 6], (1, 2, 3))
+print(nested_tuple)
+```
+
+### Sets
+
+A Python set is a collection of unordered elements. A set is initialized with curly brackets, and we can add elements to a set with the add() method.
+
+::: callout-tip
+Given that a set is a collection of Python elements, it can be iterated over with a for loop; however, the elements may not necessarily appear in the order they were initialized. Additionally, there is no effect when adding an already existing element to the set.
+:::
+
+```{python}
+# Create a set 
+a = {4, 5, 7}
+
+# Add 9 to a
+a.add(9)
+print(a)
+
+# Add 4 to a
+a.add(4)
+print(f'This is our updated set a after adding 4 to it: {a}')
+```
+
+#### Set Operations
+
+Set operations can be performed in Python with the union() and intersection() methods.
+
+Example 13:
+
+```{python}
+#Create set b
+b = {3, 7, 6}
+
+# Perform a union
+print(f'The union of sets a & b is {a.union(b)}')
+
+# Find the intersection of sets a & b
+print(f'The intersection sets a & b is {a.intersection(b)}')
+```
+
+```{python}
+# Remove an element from a set: use discard() or remove()
+a = {4, 5, 7}
+a.remove(4)
+print(a)
+
+print(' ')
+
+b = {3, 7, 6}
+b.discard(7)
+print(b)
+
+```
+
+1.  
+
+2.  
+
+3.  
+
+4.  
+
+5.  
+
+6.  
+
+7.  
+
+8.  
+
+9.  
+
+    -   
+
+10. **Dictionaries:**
+
+    -   **Explanation:** Unordered collections of key-value pairs. Provides fast lookups and retrievals based on keys.
+
+11. **Arrays (NumPy):**
+
+    -   **Explanation:** Homogeneous, multidimensional arrays. Efficient for mathematical and logical operations.
+
+References
+
+1.  Harrison, M. (2021). *Effective Pandas: Patterns for data manipulation.*
+2.  Farrell, P., Fuentes, A., Kolhe, A. S., Nguyen, Q., Sarver, A. J., Tsatsos, M. (2020). *The Statistics and Calculus with Python Workshop: A comprehensive introduction to mathematics in Python for artificial intelligence applications.* Packt Publishing. Kindle Edition.

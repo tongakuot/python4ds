@@ -1,0 +1,49 @@
+---
+title: "Python for Data Science"
+subtitle: "Jonglei Institute of Technology & Alierwai DataStudio"
+author: "Alier Reng"
+format:
+  html:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    
+editor: visual
+---
+
+Chapter 1 Getting Started
+
+Data science, a multidisciplinary field that focuses on extracting insights from data, relies heavily on Python, R, and other programming languages. We will use Python in this course for its simplicity and robust libraries. This introductory course in data science with Python will cover fundamental concepts, data manipulation with Pandas and NumPy, and data visualization using Matplotlib and Seaborn. Learners delve into data cleaning, preprocessing, and exploratory data analysis to prepare data for analysis. The course equips learners with a solid foundation to embark on a data science journey and apply their skills to real-world challenges.
+
+Installing Anaconda
+
+conda install "package name"
+
+pip install "package name"
+
+Installing and Customizing VS Code
+
+details will be added later.
+
+Jupyter Notebook Overview
+
+Keyboard shortcuts:
+
+h - brings up help (press ESC to dismiss)
+
+a - creates a cell above the current cell
+
+b - creates a cell below the current cell
+
+x - cut the cell
+
+c - copy the cell
+
+v - paste the copied the content
+
+ESC + M to change to Markdown Mode
+
+ESC + Y to change to Code Mode
+
+TAB - Tab completion
+
